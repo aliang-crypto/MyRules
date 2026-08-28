@@ -1,0 +1,11 @@
+# ==========================================
+# 🇪🇺 欧洲合规金融与加密资产规则库 (Crypto_UK)
+# 策略组：指向英国 (UK) 节点
+# ==========================================
+# --- 欧洲合规交易所与理财平台 ---
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,nexo.com
+DOMAIN-SUFFIX,nexo.io
+DOMAIN-SUFFIX,neverless.com
+
+# --- (后续如有欧洲数字银行/支付网关可随时追加于此) ---
