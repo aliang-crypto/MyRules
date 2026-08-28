@@ -3,6 +3,9 @@
 个人专属分流规则集，针对加密资产、Web3 钱包、链上 DApp 及跨国合规业务进行精细化路由隔离。
 
 ---
+改完代码，CDN 强刷：
+新标签页访问一次清楚缓存连接（只需把原链接的 cdn 改为 purge）：
+https://purge.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
 
 ### 规则订阅链接（优先推荐 jsDelivr CDN 加速）
 
