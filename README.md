@@ -7,15 +7,24 @@
 新标签页访问一次清楚缓存连接（只需把原链接的 cdn 改为 purge）：
 https://purge.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
 
-模块链接：
+模块订阅链接：
 https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/GlobalRouting.sgmodule
 
 ### 规则订阅链接（优先推荐 jsDelivr CDN 加速）
 
-| 规则名称 | 适用业务 / 平台 | 推荐策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
-| :--- | :--- | :--- | :--- | :--- |
-| **Crypto_UK** | Kraken, Nexo, Neverless 等欧洲合规平台 | 🇬🇧 英国 (UK) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list` |
-| **Crypto_All** | Binance, OKX, Bitget, Backpack, 钱包, RPC, DApp | 🇹🇼 台湾 (TW) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list` |
+| 规则名称 | 策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
+
+| **Crypto_UK** | | 🇬🇧 英国 (UK) | 
+ jsDelivr CDN 加速链接（推荐）
+https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list
+GitHub Raw 原生直链
+https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list
+
+| **Crypto_All** | | 🇹🇼 台湾 (TW) | 
+ jsDelivr CDN 加速链接（推荐）
+https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
+GitHub Raw 原生直链
+https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list
 
 ---
 
