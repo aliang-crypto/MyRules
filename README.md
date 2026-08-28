@@ -6,9 +6,17 @@
 
 ### 规则订阅链接（优先推荐 jsDelivr CDN 加速）
 
-#### 🇬🇧 1. Crypto_UK（欧洲合规专线）
-* **适用平台**：Kraken, Nexo, Neverless 等欧洲合规业务
-* **推荐策略**：英国 (UK) 节点
-* **CDN 订阅链接**（小火箭直接使用）：
-```text
-[https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list](https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list)
+| 规则名称 | 适用业务 / 平台 | 推荐策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
+| :--- | :--- | :--- | :--- | :--- |
+| **Crypto_UK** | Kraken, Nexo, Neverless 等欧洲合规平台 | 🇬🇧 英国 (UK) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list` |
+| **Crypto_All** | Binance, OKX, Bitget, Backpack, 钱包, RPC, DApp | 🇹🇼 台湾 (TW) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list` |
+
+---
+
+### 小火箭 (Shadowrocket) 挂载与排序说明
+
+1. 在【配置】➔【规则】中以 `RULE-SET` 方式添加上述 CDN 链接。
+2. **规则优先级排序（自上而下）**：
+   - 🔼 **1. `crypto_uk.list`** ➔ 绑定英国节点分组
+   - 🔽 **2. `crypto_all.list`** ➔ 绑定台湾节点分组
+3. 保证欧洲特定合规平台优先匹配英国线路，其余全量加密资产流量统一进入台湾远端解析黑盒。
