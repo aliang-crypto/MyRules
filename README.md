@@ -7,6 +7,9 @@
 新标签页访问一次清楚缓存连接（只需把原链接的 cdn 改为 purge）：
 https://purge.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
 
+总订阅链接：
+https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/My_Auto.conf
+
 模块订阅链接：
 https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/GlobalRouting.sgmodule
 
