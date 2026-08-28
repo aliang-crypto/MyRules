@@ -4,8 +4,9 @@
 # ==========================================
 # --- 欧洲合规交易所与理财平台 ---
 DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,krak.app
 DOMAIN-SUFFIX,nexo.com
 DOMAIN-SUFFIX,nexo.io
 DOMAIN-SUFFIX,neverless.com
 
-# --- (后续如有欧洲数字银行/支付网关可随时追加于此) ---
+# --- (后续如有欧洲数字银行/加密交易所/支付网关等可随时追加于此) ---
