@@ -1,0 +1,43 @@
+name: Auto Merge Shadowrocket Config
+
+on:
+  schedule:
+    - cron: '0 18 * * *' # 每天北京时间凌晨2点自动运行
+  workflow_dispatch: # 允许手动点击运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出当前代码库
+        uses: actions/checkout@v3
+
+      - name: 下载底座并注入私有规则
+        run: |
+          # 1. 下载 Johnshall 懒人配置含策略组底座
+          curl -s -o base.conf "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/master/lazy_group.conf"
+
+          # 2. 准备你的私有前置规则
+          cat << 'EOF' > custom_rules.txt
+          # ==========================
+          # 🚀 极客私有核心分流强注入层
+          # ==========================
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list,英国节点
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list,台湾节点
+          DOMAIN-SUFFIX,hulu.com,美国节点
+          DOMAIN-SUFFIX,max.com,美国节点
+          EOF
+
+          # 3. 将私有规则精准插入到原配置的 [Rule] 标签正下方
+          sed -i '/^\[Rule\]/r custom_rules.txt' base.conf
+
+          # 4. 生成最终融合版文件
+          mv base.conf My_Auto.conf
+
+      - name: 提交并推送到你的仓库
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add My_Auto.conf
+          git commit -m "自动融合基础配置与私有加密规则" || exit 0
+          git push
