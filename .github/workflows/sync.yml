@@ -26,6 +26,7 @@ jobs:
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list,台湾节点
           DOMAIN-SUFFIX,hulu.com,美国节点
           DOMAIN-SUFFIX,max.com,美国节点
+          # 👈 如果以后还要加别的，直接在这里新起一行按标准格式添加即可！
           EOF
 
           # 3. 将私有规则精准插入到原配置的 [Rule] 标签正下方
