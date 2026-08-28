@@ -17,12 +17,14 @@ https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/GlobalRouting.sgmodule
 | **Crypto_UK** | | 🇬🇧 英国 (UK) | 
  jsDelivr CDN 加速链接（推荐）
 https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list
+
 GitHub Raw 原生直链
 https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list
 
 | **Crypto_All** | | 🇹🇼 台湾 (TW) | 
  jsDelivr CDN 加速链接（推荐）
 https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
+
 GitHub Raw 原生直链
 https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list
 
