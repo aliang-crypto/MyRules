@@ -9,6 +9,7 @@ https://purge.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
 
 模块链接：
 https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/GlobalRouting.sgmodule
+
 ### 规则订阅链接（优先推荐 jsDelivr CDN 加速）
 
 | 规则名称 | 适用业务 / 平台 | 推荐策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
