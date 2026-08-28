@@ -3,13 +3,15 @@
 个人专属分流规则集，针对加密资产、Web3 钱包、链上 DApp 及跨国合规业务进行精细化路由隔离。
 
 ---
-
+改完代码，CDN 强刷：
+新标签页访问一次清楚缓存连接（只需把原链接的 cdn 改为 purge）：
+https://purge.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list
 ### 规则订阅链接（优先推荐 jsDelivr CDN 加速）
 
-| 规则名称 | 策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
+| 规则名称 | 适用业务 / 平台 | 推荐策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
 | :--- | :--- | :--- | :--- | :--- |
-| **Crypto_UK** | 🇬🇧 英国 (UK) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list` |
-| **Crypto_All** | 🇹🇼 台湾 (TW) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list` |
+| **Crypto_UK** | Kraken, Nexo, Neverless 等欧洲合规平台 | 🇬🇧 英国 (UK) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list` |
+| **Crypto_All** | Binance, OKX, Bitget, Backpack, 钱包, RPC, DApp | 🇹🇼 台湾 (TW) | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list` |
 
 ---
 
