@@ -21,8 +21,8 @@
 | 规则名称 | 策略出口 | jsDelivr CDN 加速链接（推荐） | GitHub Raw 原生直链 |
 | :--- | :--- | :--- | :--- |
 | **Old_Money** | **DIRECT (直连)** | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/OldMoney.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/OldMoney.list` |
-| **Crypto_UK** | **GB 英国 (UK)** | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list` |
-| **Crypto_All** | **TW 台湾 (TW)** | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list` |
+| **Crypto_UK** | **GB  (UK)** | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_uk.list` |
+| **Crypto_All** | **TW  (TW)** | `https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list` | `https://raw.githubusercontent.com/aliang-crypto/MyRules/main/crypto_all.list` |
 
 ---
 
@@ -32,12 +32,12 @@
    * **类型**：选择 `RULE-SET`
    * **策略**：
      * `oldmoney.list` ➔ 选 **DIRECT**
-     * `crypto_uk.list` ➔ 选 **英国节点分组**
-     * `crypto_all.list` ➔ 选 **台湾节点分组**
+     * `crypto_uk.list` ➔ 选 **uk节点分组**
+     * `crypto_all.list` ➔ 选 **tw节点分组**
 
 2. **规则优先级排序（自上而下，严格按此顺序拖动）**：
    * 🥇 **1. oldmoney.list** ➔ `DIRECT`（置于最顶端，保证金融/支付无条件走原生网络）
-   * 🥈 **2. crypto_uk.list** ➔ `英国节点`（保证特定英区金融平台优先命中合规出口）
-   * 🥉 **3. crypto_all.list** ➔ `台湾节点`（其余全量 Web3/加密平台走台湾远端解析）
+   * 🥈 **2. crypto_uk.list** ➔ `uk节点`（保证特定英区金融平台优先命中合规出口）
+   * 🥉 **3. crypto_all.list** ➔ `tw节点`（其余全量 Web3/加密平台走台湾远端解析）
    * 🎯 **4. 懒人配置自带的其它规则** ➔ （流媒体、常规分流等）
    * 🛡️ **5. FINAL / 漏斗规则** ➔ `DIRECT` 或 `PROXY`
