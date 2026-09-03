@@ -1,0 +1,35 @@
+# ==========================================
+# Old Money & Traditional Finance Direct List
+# 策略：DIRECT（直连放行，严禁走机房代理）
+# ==========================================
+
+# --- Wise ---
+DOMAIN-SUFFIX,wise.com
+DOMAIN-SUFFIX,transferwise.com
+
+# --- iFAST Global Bank ---
+DOMAIN-SUFFIX,ifastgb.com
+DOMAIN-SUFFIX,ifastfinancial.com
+DOMAIN-SUFFIX,ifastps.com
+
+# --- Maya (Philippines) ---
+DOMAIN-SUFFIX,maya.ph
+DOMAIN-SUFFIX,mayabank.ph
+DOMAIN-SUFFIX,paymaya.com
+
+# --- Starryblu & Panda Remit ---
+DOMAIN-SUFFIX,starryblu.com
+DOMAIN-SUFFIX,pandaremit.com
+
+# --- Singapore Gulf Bank (SGB) ---
+DOMAIN-SUFFIX,sgb.com
+
+# --- Alipay & AlipayHK (含核心静态分发CDN) ---
+DOMAIN-SUFFIX,alipay.com
+DOMAIN-SUFFIX,alipayhk.com
+DOMAIN-SUFFIX,alipayobjects.com
+DOMAIN-SUFFIX,alipayplus.com
+
+# --- Tenpay & Tenpay Global ---
+DOMAIN-SUFFIX,tenpay.com
+DOMAIN-SUFFIX,tenpayglobal.com
