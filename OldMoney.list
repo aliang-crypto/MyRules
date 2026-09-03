@@ -13,9 +13,13 @@ DOMAIN-SUFFIX,ifastfinancial.com
 DOMAIN-SUFFIX,ifastps.com
 
 # --- Maya (Philippines) ---
+DOMAIN-KEYWORD,paymaya
+DOMAIN-KEYWORD,mayabank
 DOMAIN-SUFFIX,maya.ph
 DOMAIN-SUFFIX,mayabank.ph
 DOMAIN-SUFFIX,paymaya.com
+DOMAIN-SUFFIX,pg.maya.ph
+DOMAIN-SUFFIX,payments.maya.ph
 
 # --- Starryblu & Panda Remit ---
 DOMAIN-SUFFIX,starryblu.com
