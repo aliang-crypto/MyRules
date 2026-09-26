@@ -1,0 +1,44 @@
+# ==========================================
+# 🏦 传统金融直连规则库 (oldmoney.list)
+# 策略：DIRECT（直连，银行/券商/支付类风控敏感，严禁走机房代理）
+# 原则：只收录本人在用的机构，用一个加一个，保持精简。
+# 注意：之前 Maya App 打不开，病因是备用 DNS 被改成 1.1.1.1/8.8.8.8，
+#       直连 DNS 超时 2 秒就回退到境外 DNS，银行域名被解析到错误地区。
+#       已在 sync.yml 中固化：direct-dns-server 走国内，fallback-dns-server
+#       改回 system。此修复覆盖所有 DIRECT 域名，8 家银行同样受益。
+# 适用平台：Shadowrocket / Surge
+# ==========================================
+
+# --- IBKR (盈透证券) ---
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,ibkr.com
+
+# --- iFAST Global Bank ---
+DOMAIN-SUFFIX,ifastgb.com
+DOMAIN-SUFFIX,ifastfinancial.com
+DOMAIN-SUFFIX,ifastps.com
+
+# --- Wise ---
+DOMAIN-SUFFIX,wise.com
+DOMAIN-SUFFIX,transferwise.com
+
+# --- AlipayHK ---
+DOMAIN-SUFFIX,alipayhk.com
+
+# --- Tenpay Global (腾讯 Tenpay Go) ---
+DOMAIN-SUFFIX,tenpayglobal.com
+
+# --- SGB (新加坡海湾银行，巴林牌照) ---
+DOMAIN-SUFFIX,sgb.com
+
+# --- Maya (菲律宾) ---
+DOMAIN-KEYWORD,paymaya
+DOMAIN-KEYWORD,mayabank
+DOMAIN-SUFFIX,maya.ph
+DOMAIN-SUFFIX,mayabank.ph
+DOMAIN-SUFFIX,paymaya.com
+DOMAIN-SUFFIX,pg.maya.ph
+DOMAIN-SUFFIX,payments.maya.ph
+
+# --- Starryblu (多币种支付) ---
+DOMAIN-SUFFIX,starryblu.com

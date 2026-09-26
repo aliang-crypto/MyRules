@@ -1,0 +1,29 @@
+# ==========================================
+# 🇺🇸 AI 大模型规则库 (ai_us.list) — 精简版
+# 策略：DMIT-US（自建美国分组，导入小火箭后手动选择 DMIT 美国节点）
+# 说明：只保留高频使用的核心 AI。流媒体（YouTube/Netflix/Disney+/Spotify 等）
+#       底座懒人配置已有专门分组；Facebook/Telegram/Discord/Reddit/Signal/
+#       WhatsApp 等底座没有，但会掉到 FINAL → DMIT-US，效果一样，无需重复收录。
+#       漏掉的一律由底座 AI 分组或 FINAL 兜底。
+# 适用平台：Shadowrocket / Surge
+# ==========================================
+
+# --- OpenAI / ChatGPT ---
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+
+# --- Anthropic / Claude (亚马逊投资那家) ---
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+
+# --- Meta / Muse ---
+DOMAIN-SUFFIX,meta.ai
+
+# --- Google Gemini ---
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,ai.google.dev
+
+# --- xAI / Grok ---
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com

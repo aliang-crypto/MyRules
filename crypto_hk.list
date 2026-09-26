@@ -1,0 +1,20 @@
+# ==========================================
+# 🔮 预测市场规则库 (crypto_hk.list)
+# 策略：HK（自建香港分组，导入小火箭后手动选择香港节点）
+# 说明：预测市场在台湾受双重封锁（政府 DNS 封锁 + 平台
+#       对台湾仅允许平仓），走台湾节点完全打不开；
+#       香港技术可达（平台不封香港 IP），故单独走香港。
+# ⚠️ 合规提示：香港官方将境外预测市场投注定性为可能构成
+#    非法赌博，自行承担合规风险。
+# 适用平台：Shadowrocket / Surge
+# ==========================================
+
+# --- Polymarket ---
+DOMAIN-SUFFIX,polymarket.com
+DOMAIN-KEYWORD,polymarket
+
+# --- Predict.fun (币安钱包 Prediction Markets 功能技术方，BNB Chain 协议) ---
+# 注：币安未公布该功能的适用地区名单，台湾/香港实际可用性需实测；
+#     若走 Binance App 内入口，相关流量可能仍走 binance.com 域名（见 crypto_tw.list）
+DOMAIN-SUFFIX,predict.fun
+DOMAIN-KEYWORD,predict.fun
