@@ -17,22 +17,56 @@ jobs:
           # 1. 下载 Johnshall 懒人配置含策略组底座
           curl -s -o base.conf "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/master/lazy_group.conf"
 
-          # 2. 准备你的私有前置规则
+          # 2. 准备你的私有前置规则（四路线，指向自建分组）
+          #    - oldmoney.list → DIRECT（直连不需要分组）
+          #    - crypto_hk.list → HK（自建香港分组）
+          #    - crypto_tw.list → TW（自建台湾分组）
+          #    - ai_us.list → DMIT-US（自建美国分组）
           cat << 'EOF' > custom_rules.txt
           # ==========================
-          # 🚀 极客私有核心分流强注入层
+          # 🚀 私有核心分流强注入层（四路线）
+          # 1. 传统金融 → DIRECT / 2. 预测市场 → HK /
+          # 3. 加密全量 → TW / 4. AI流媒体 → DMIT-US
           # ==========================
-          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_uk.list,英国节点
-          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_all.list,台湾节点
-          DOMAIN-SUFFIX,hulu.com,美国节点
-          DOMAIN-SUFFIX,max.com,美国节点
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/oldmoney.list,DIRECT
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_hk.list,HK
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_tw.list,TW
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/ai_us.list,DMIT-US
           # 👈 如果以后还要加别的，直接在这里新起一行按标准格式添加即可！
           EOF
 
           # 3. 将私有规则精准插入到原配置的 [Rule] 标签正下方
           sed -i '/^\[Rule\]/r custom_rules.txt' base.conf
 
-          # 4. 生成最终融合版文件
+          # 4. 注入自建策略分组（[Proxy Group] 段顶部）
+          #    DMIT-US / TW / HK 三个 select 分组，导入小火箭后手动点选具体节点即可。
+          #    成员里预置 DIRECT + 底座对应地区组，方便一键选择。
+          sed -i '/^\[Proxy Group\]/a DMIT-US = select,DIRECT,美国节点\nTW = select,DIRECT,台湾节点\nHK = select,DIRECT,香港节点' base.conf
+
+          # 5. 未命中流量 FINAL → DMIT-US（原底座为 FINAL,PROXY，注意逗号格式）
+          sed -i 's|^FINAL,.*|FINAL,DMIT-US|' base.conf
+
+          # 5b. 微软服务默认直连（原底座 policy-select-name=PROXY）
+          sed -i 's|^\(微软服务 = .*\),policy-select-name=PROXY|\1,policy-select-name=DIRECT|' base.conf
+
+          # 6. 覆盖 DNS 与通用设置（个人偏好，一次写死，以后不用在小火箭里手动改）
+          #    以下对照手机端截图整理：
+          #    - dns-server：改成了 Cloudflare + Google（保留个人偏好）
+          #    - direct-dns-server：加了 doh.pub + 阿里（直连域名走国内解析，保留）
+          #    - fallback-dns-server：改回 system。这是之前 Maya 打不开的元凶——
+          #      你改成 1.1.1.1/8.8.8.8 后，直连 DNS 只要超时 2 秒就回退到境外 DNS，
+          #      银行域名被解析到错误地区。改回 system，回退走运营商 DNS。
+          #    - hijack-dns：加了 1.1.1.1:53（保留）
+          #    - ipv6：关闭（保留）
+          #    - always-real-ip：加了 *.apple.com（保留）
+          sed -i 's|^dns-server = .*|dns-server = https://cloudflare-dns.com/dns-query,https://dns.google/dns-query|' base.conf
+          sed -i -E 's|^#?[[:space:]]*direct-dns-server[[:space:]]*=.*|direct-dns-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query|' base.conf
+          sed -i 's|^fallback-dns-server = .*|fallback-dns-server = system|' base.conf
+          sed -i 's|^hijack-dns = .*|hijack-dns = 8.8.8.8:53,8.8.4.4:53,1.1.1.1:53|' base.conf
+          sed -i 's|^ipv6 = .*|ipv6 = false|' base.conf
+          sed -i -E 's|^#?[[:space:]]*always-real-ip[[:space:]]*=.*|always-real-ip = *.apple.com|' base.conf
+
+          # 7. 生成最终融合版文件
           mv base.conf My_Auto.conf
 
       - name: 提交并推送到你的仓库
@@ -40,5 +74,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add My_Auto.conf
-          git commit -m "自动融合基础配置与私有加密规则" || exit 0
+          git commit -m "自动融合基础配置与私有分流规则" || exit 0
           git push
