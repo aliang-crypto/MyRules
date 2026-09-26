@@ -40,5 +40,9 @@ DOMAIN-SUFFIX,paymaya.com
 DOMAIN-SUFFIX,pg.maya.ph
 DOMAIN-SUFFIX,payments.maya.ph
 
+# --- 银行风控安全模块（Zimperium 等，Maya/iFast 类 App 内嵌，须直连） ---
+DOMAIN-SUFFIX,zimperium.com
+DOMAIN-SUFFIX,fsm.global
+
 # --- Starryblu (多币种支付) ---
 DOMAIN-SUFFIX,starryblu.com
