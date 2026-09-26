@@ -39,15 +39,20 @@ jobs:
           sed -i '/^\[Rule\]/r custom_rules.txt' base.conf
 
           # 4. 注入自建策略分组（[Proxy Group] 段顶部）
-          #    DMIT-US / TW / HK 三个 select 分组，导入小火箭后手动点选具体节点即可。
-          #    成员里预置 DIRECT + 底座对应地区组，方便一键选择。
-          sed -i '/^\[Proxy Group\]/a DMIT-US = select,DIRECT,美国节点\nTW = select,DIRECT,台湾节点\nHK = select,DIRECT,香港节点' base.conf
+          #    默认指向已写死，下载即用，不用手动点选：
+          #    DMIT-US → 本地节点 DMIT-Reality-US；TW → 台湾节点；HK → 香港节点。
+          sed -i '/^\[Proxy Group\]/a DMIT-US = select,DMIT-Reality-US,美国节点,DIRECT,policy-select-name=DMIT-Reality-US\nTW = select,台湾节点,DIRECT,policy-select-name=台湾节点\nHK = select,香港节点,DIRECT,policy-select-name=香港节点' base.conf
 
           # 5. 未命中流量 FINAL → DMIT-US（原底座为 FINAL,PROXY，注意逗号格式）
           sed -i 's|^FINAL,.*|FINAL,DMIT-US|' base.conf
 
           # 5b. 微软服务默认直连（原底座 policy-select-name=PROXY）
           sed -i 's|^\(微软服务 = .*\),policy-select-name=PROXY|\1,policy-select-name=DIRECT|' base.conf
+
+          # 5c. 底座其余分组默认指向本地 DMIT-Reality-US（苹果/微软/哔哩哔哩保持 DIRECT）
+          #    注意：必须在 5b 之后跑，这样微软服务已是 DIRECT，不会被改掉。
+          sed -i '/^[^#].*policy-select-name=PROXY$/s/= select,/= select,DMIT-Reality-US,/' base.conf
+          sed -i '/^[^#].*policy-select-name=PROXY$/s/policy-select-name=PROXY$/policy-select-name=DMIT-Reality-US/' base.conf
 
           # 6. 覆盖 DNS 与通用设置（个人偏好，一次写死，以后不用在小火箭里手动改）
           #    以下对照手机端截图整理：
@@ -67,12 +72,12 @@ jobs:
           sed -i -E 's|^#?[[:space:]]*always-real-ip[[:space:]]*=.*|always-real-ip = *.apple.com|' base.conf
 
           # 7. 生成最终融合版文件
-          mv base.conf My_Auto.conf
+          mv base.conf myrules.conf
 
       - name: 提交并推送到你的仓库
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add My_Auto.conf
+          git add myrules.conf
           git commit -m "自动融合基础配置与私有分流规则" || exit 0
           git push
