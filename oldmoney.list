@@ -40,9 +40,6 @@ DOMAIN-SUFFIX,paymaya.com
 DOMAIN-SUFFIX,pg.maya.ph
 DOMAIN-SUFFIX,payments.maya.ph
 
-# --- 中国建设银行 (CCB) ---
-DOMAIN-SUFFIX,ccb.com
-
 # --- 银行 App 内嵌第三方模块（须与主 App 同出口，防风控判 IP 跳变） ---
 # 安全风控类：Zimperium、Appdome（Maya 登录时实测调用 appdome）
 DOMAIN-SUFFIX,zimperium.com
