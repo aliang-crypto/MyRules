@@ -90,6 +90,10 @@ DOMAIN-SUFFIX,neverless.com
 DOMAIN-SUFFIX,hyperliquid.xyz
 DOMAIN-KEYWORD,hyperliquid
 
+# --- Pionex (派网，量化交易机器人交易所) ---
+DOMAIN-SUFFIX,pionex.com
+DOMAIN-SUFFIX,pionex.us
+
 # --- 其他主流与区域交易所 ---
 DOMAIN-SUFFIX,aex.com
 DOMAIN-SUFFIX,asproex.com
