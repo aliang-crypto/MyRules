@@ -51,10 +51,12 @@ jobs:
           # 5b. 微软服务默认直连（原底座 policy-select-name=PROXY）
           sed -i 's|^\(微软服务 = .*\),policy-select-name=PROXY|\1,policy-select-name=DIRECT|' base.conf
 
-          # 5c. 底座其余分组默认指向本地 DMIT-Reality-US（苹果/微软/哔哩哔哩保持 DIRECT）
+          # 5c. 底座其余分组默认指向自建 DMIT-US 分组（苹果/微软/哔哩哔哩保持 DIRECT）
           #    注意：必须在 5b 之后跑，这样微软服务已是 DIRECT，不会被改掉。
-          sed -i '/^[^#].*policy-select-name=PROXY$/s/= select,/= select,DMIT-Reality-US,/' base.conf
-          sed -i '/^[^#].*policy-select-name=PROXY$/s/policy-select-name=PROXY$/policy-select-name=DMIT-Reality-US/' base.conf
+          #    指向 DMIT-US 分组而不是直指节点：换节点时只改 DMIT-US 一处，
+          #    所有服务分组自动跟随（国区设备切 GCP 节点时不用逐个改）。
+          sed -i '/^[^#].*policy-select-name=PROXY$/s/= select,/= select,DMIT-US,/' base.conf
+          sed -i '/^[^#].*policy-select-name=PROXY$/s/policy-select-name=PROXY$/policy-select-name=DMIT-US/' base.conf
 
           # 6. 覆盖 DNS 与通用设置（个人偏好，一次写死，以后不用在小火箭里手动改）
           #    以下对照手机端截图整理：
