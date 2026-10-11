@@ -18,7 +18,8 @@ jobs:
           curl -s -o base.conf "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/master/lazy_group.conf"
 
           # 2. 准备你的私有前置规则（四路线，指向自建分组）
-          #    - oldmoney.list → DIRECT（直连不需要分组）
+          #    - oldmoney.list → DIRECT（境外金融，直连不需要分组）
+          #    - cn_direct.list → DIRECT（国区设备直连，直连不需要分组）
           #    - crypto_hk.list → HK（自建香港分组）
           #    - crypto_tw.list → TW（自建台湾分组）
           #    - ai_us.list → DMIT-US（自建美国分组）
@@ -29,6 +30,7 @@ jobs:
           # 3. 加密全量 → TW / 4. AI流媒体 → DMIT-US
           # ==========================
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/oldmoney.list,DIRECT
+          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/cn_direct.list,DIRECT
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_hk.list,HK
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_tw.list,TW
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/ai_us.list,DMIT-US
