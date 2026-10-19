@@ -63,7 +63,14 @@ DOMAIN-SUFFIX,bitkeep.com
 DOMAIN-KEYWORD,bitget
 
 # --- Bybit (平台自限香港 IP，必须走台湾) ---
+# 注：2026-10-20 补漏——bytick.com（备用全球域名）、byhkbit.com（香港）、
+#     manepa.jp（日本）、spark-fintech.com（香港备用）均不含 "bybit" 子串
+#     且非 bybit.com 后缀，原规则命中不了，会漏到默认路由。
 DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bytick.com
+DOMAIN-SUFFIX,byhkbit.com
+DOMAIN-SUFFIX,manepa.jp
+DOMAIN-SUFFIX,spark-fintech.com
 DOMAIN-KEYWORD,bybit
 
 # --- Backpack ---
