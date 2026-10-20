@@ -95,10 +95,6 @@ DOMAIN-SUFFIX,nexo.com
 DOMAIN-SUFFIX,nexo.io
 DOMAIN-SUFFIX,neverless.com
 
-# --- Hyperliquid ---
-DOMAIN-SUFFIX,hyperliquid.xyz
-DOMAIN-KEYWORD,hyperliquid
-
 # --- Pionex (派网，量化交易机器人交易所) ---
 DOMAIN-SUFFIX,pionex.com
 DOMAIN-SUFFIX,pionex.us
@@ -181,7 +177,6 @@ DOMAIN-SUFFIX,onekeycn.com
 DOMAIN-SUFFIX,onekeytest.com
 DOMAIN-SUFFIX,1key.so
 DOMAIN-SUFFIX,tangem.com
-DOMAIN-SUFFIX,phantom.app
 DOMAIN-SUFFIX,metamask.io
 DOMAIN-KEYWORD,metamask
 DOMAIN,token-api.metaswap.codefi.network
@@ -303,7 +298,6 @@ DOMAIN-SUFFIX,raydium.io
 DOMAIN-SUFFIX,traderjoexyz.com
 DOMAIN-SUFFIX,sunswap.com
 DOMAIN-SUFFIX,1inch.io
-DOMAIN-SUFFIX,jup.ag
 DOMAIN-SUFFIX,aave.com
 DOMAIN-SUFFIX,compound.finance
 DOMAIN-SUFFIX,makerdao.com
