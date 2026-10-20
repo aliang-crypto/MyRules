@@ -58,8 +58,10 @@ DOMAIN-SUFFIX,okx-dns2.com
 DOMAIN-KEYWORD,okx
 
 # --- Bitget ---
+# 注：2026-10-20 补漏——bgstatic.com 是 Bitget 静态资源 CDN，不含 "bitget"。
 DOMAIN-SUFFIX,bitget.com
 DOMAIN-SUFFIX,bitkeep.com
+DOMAIN-SUFFIX,bgstatic.com
 DOMAIN-KEYWORD,bitget
 
 # --- Bybit (平台自限香港 IP，必须走台湾) ---
@@ -174,6 +176,10 @@ DOMAIN-KEYWORD,huobi
 DOMAIN-SUFFIX,ledger.com
 DOMAIN-SUFFIX,trezor.io
 DOMAIN-SUFFIX,onekey.so
+# 注：2026-10-20 补漏——onekeycn.com / onekeytest.com / 1key.so（SlowMist 审计报告里的 SDK 白名单域名）
+DOMAIN-SUFFIX,onekeycn.com
+DOMAIN-SUFFIX,onekeytest.com
+DOMAIN-SUFFIX,1key.so
 DOMAIN-SUFFIX,tangem.com
 DOMAIN-SUFFIX,phantom.app
 DOMAIN-SUFFIX,metamask.io
