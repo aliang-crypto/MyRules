@@ -4,6 +4,8 @@
 # 说明：预测市场在台湾受双重封锁（政府 DNS 封锁 + 平台
 #       对台湾仅允许平仓），走台湾节点完全打不开；
 #       香港技术可达（平台不封香港 IP），故单独走香港。
+# 2026-10-21：Phantom 钱包整 App 移入本组（见文末），
+#       其预测市场（Kalshi/DFlow）与 Perps（Hyperliquid）在港均可用。
 # ⚠️ 合规提示：香港官方将境外预测市场投注定性为可能构成
 #    非法赌博，自行承担合规风险。
 # 适用平台：Shadowrocket / Surge
@@ -18,3 +20,20 @@ DOMAIN-KEYWORD,polymarket
 #     换 IP 无法绕过；币安主站已移回 crypto_tw.list（台湾组）
 DOMAIN-SUFFIX,predict.fun
 DOMAIN-KEYWORD,predict.fun
+
+# --- Phantom 钱包（整 App 挪港，2026-10-21）---
+# 预测市场由 Kalshi 经 DFlow 提供：Kalshi 受限名单含台湾与中国大陆、不含香港；
+# 资格判断可能落在 Phantom 自家 API 或 DFlow，故整 App 统一走香港，不拆分出口。
+# 核心（phantom.app 后缀已含 api/connect 等全部子域名）
+DOMAIN-SUFFIX,phantom.app
+DOMAIN-SUFFIX,phantom.com
+# 预测市场（DFlow 生产端点与 KYC 验证 dflow.net/proof 均在此后缀下；kalshi.com 为保险行）
+DOMAIN-SUFFIX,dflow.net
+DOMAIN-SUFFIX,kalshi.com
+# Perps（后端 Hyperliquid，api.hyperliquid.xyz 行情与交易同域）
+DOMAIN-SUFFIX,hyperliquid.xyz
+DOMAIN-KEYWORD,hyperliquid
+# 兑换 / 行情 / Phantom Cash 通道（保险行）
+DOMAIN-SUFFIX,jup.ag
+DOMAIN-SUFFIX,birdeye.so
+DOMAIN-SUFFIX,bridge.xyz
