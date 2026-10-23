@@ -47,6 +47,12 @@ DOMAIN-SUFFIX,binancezh.net
 DOMAIN-SUFFIX,binancezh.pro
 DOMAIN-SUFFIX,binancezh.sh
 DOMAIN-SUFFIX,binancezh.top
+# 注：2026-10-23 补漏——saasexch.com 是币安 App 在用的接口后端域名族（多方抓包
+#     一致证实，官方未公开列名），不含 "binance" 字样，后缀与 KEYWORD 都命中
+#     不了，App 登录流量曾因此漏到直连（登录邮件显示 CN IP）。
+DOMAIN-SUFFIX,saasexch.com
+# Trust Wallet（币安生态自托管钱包）官网/App 域名（原表只有 trustwalletapp.com）
+DOMAIN-SUFFIX,trustwallet.com
 DOMAIN-KEYWORD,binance
 
 # --- OKX (欧易系) ---
@@ -55,6 +61,9 @@ DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,okx-dns.com
 DOMAIN-SUFFIX,okx-dns1.com
 DOMAIN-SUFFIX,okx-dns2.com
+# 注：2026-10-23 补漏——okcoin.com 为 OKX 前身 Okcoin 的存量域名（已并入 OKX，
+#     遗留账户页仍在用）。oklink.com 已在数据/浏览器区收录，无需重复。
+DOMAIN-SUFFIX,okcoin.com
 DOMAIN-KEYWORD,okx
 
 # --- Bitget ---
@@ -81,6 +90,8 @@ DOMAIN-SUFFIX,backpack.app
 
 # --- Coinbase ---
 DOMAIN-SUFFIX,coinbase.com
+# 注：2026-10-23 补漏——cb.id 为 Coinbase 的链上身份域名（钱包用户名 *.cb.id）。
+DOMAIN-SUFFIX,cb.id
 
 # --- Crypto.com ---
 DOMAIN-SUFFIX,crypto.com
@@ -88,6 +99,8 @@ DOMAIN-SUFFIX,crypto.com
 # --- Kraken (欧洲合规，原 UK 组并入；KEYWORD 覆盖卡/支付等全系列产品) ---
 DOMAIN-SUFFIX,kraken.com
 DOMAIN-SUFFIX,krak.app
+# 注：2026-10-23 补漏——cryptowat.ch 为 Kraken 旗下 Cryptowatch 图表终端，不含品牌词。
+DOMAIN-SUFFIX,cryptowat.ch
 DOMAIN-KEYWORD,kraken
 
 # --- Nexo / Neverless (欧洲合规理财，原 UK 组并入) ---
@@ -126,13 +139,22 @@ DOMAIN-SUFFIX,coinonecorp.com
 DOMAIN-SUFFIX,dydx.exchange
 DOMAIN-SUFFIX,gate.ac
 DOMAIN-SUFFIX,gate.io
+# 注：2026-10-23 补漏（Gate）——gate.com 为现行主站（与 gate.io 不同根域名）；
+#     gateio.ws 为官方 API 专用 host（api.gateio.ws），gateapi.io 为测试网 API。
+DOMAIN-SUFFIX,gate.com
+DOMAIN-SUFFIX,gateio.ws
+DOMAIN-SUFFIX,gateapi.io
 DOMAIN-SUFFIX,gemini.com
 DOMAIN-SUFFIX,korbit.co.kr
 DOMAIN-SUFFIX,kucoin.com
+# 注：2026-10-23 补漏——kucoin.cloud 为 KuCoin 官方验证中心/内容镜像域名（独立根域名）。
+DOMAIN-SUFFIX,kucoin.cloud
 DOMAIN-SUFFIX,liquid.com
 DOMAIN-SUFFIX,localbitcoins.com
 DOMAIN-SUFFIX,localbitcoinschain.com
 DOMAIN-SUFFIX,mexc.com
+# 注：2026-10-23 补漏——mexc.co 为 MEXC 官方帮助/验证内容域名（与 mexc.com 不同根域名）。
+DOMAIN-SUFFIX,mexc.co
 DOMAIN-SUFFIX,paxful.com
 DOMAIN-SUFFIX,poloniex.com
 DOMAIN-SUFFIX,zb.app
