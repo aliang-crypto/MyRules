@@ -442,3 +442,13 @@ DOMAIN-SUFFIX,bitcoinvisuals.com
 DOMAIN-SUFFIX,crypto51.app
 DOMAIN-SUFFIX,masternodes.online
 DOMAIN-SUFFIX,bitnodes.earn.com
+
+# ==========================================
+# 9. Bybit 轮换备用域名 (2026-10-26 补)
+# ==========================================
+DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,byd3c3.com
+DOMAIN-SUFFIX,byabcde.com
+DOMAIN-SUFFIX,bybdc6.com
+DOMAIN-SUFFIX,bycsi.com
+DOMAIN-SUFFIX,bvbdc6.com
