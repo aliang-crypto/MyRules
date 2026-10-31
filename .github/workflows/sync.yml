@@ -18,8 +18,7 @@ jobs:
           curl -s -o base.conf "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/master/lazy_group.conf"
 
           # 2. 准备你的私有前置规则（四路线，指向自建分组）
-          #    - oldmoney.list → DIRECT（境外金融，直连不需要分组）
-          #    - cn_direct.list → DIRECT（国区设备直连，直连不需要分组）
+          #    - oldmoney.list → DIRECT（直连不需要分组）
           #    - crypto_hk.list → HK（自建香港分组）
           #    - crypto_tw.list → TW（自建台湾分组）
           #    - ai_us.list → DMIT-US（自建美国分组）
@@ -30,7 +29,6 @@ jobs:
           # 3. 加密全量 → TW / 4. AI流媒体 → DMIT-US
           # ==========================
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/oldmoney.list,DIRECT
-          RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/cn_direct.list,DIRECT
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_hk.list,HK
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/crypto_tw.list,TW
           RULE-SET,https://cdn.jsdelivr.net/gh/aliang-crypto/MyRules@main/ai_us.list,DMIT-US
@@ -42,8 +40,8 @@ jobs:
 
           # 4. 注入自建策略分组（[Proxy Group] 段顶部）
           #    默认指向已写死，下载即用，不用手动点选：
-          #    DMIT-US → 本地节点 DMIT-Reality-US；TW → 台湾节点；HK → 香港节点。
-          sed -i '/^\[Proxy Group\]/a DMIT-US = select,DMIT-Reality-US,美国节点,DIRECT,policy-select-name=DMIT-Reality-US\nTW = select,台湾节点,DIRECT,policy-select-name=台湾节点\nHK = select,香港节点,DIRECT,policy-select-name=香港节点' base.conf
+          #    DMIT-US → 本地节点 DMIT-VLESS；TW → 台湾节点；HK → 香港节点。
+          sed -i '/^\[Proxy Group\]/a DMIT-US = select,DMIT-VLESS,美国节点,DIRECT,policy-select-name=DMIT-VLESS\nTW = select,台湾节点,DIRECT,policy-select-name=台湾节点\nHK = select,香港节点,DIRECT,policy-select-name=香港节点' base.conf
 
           # 5. 未命中流量 FINAL → DMIT-US（原底座为 FINAL,PROXY，注意逗号格式）
           sed -i 's|^FINAL,.*|FINAL,DMIT-US|' base.conf
@@ -51,12 +49,10 @@ jobs:
           # 5b. 微软服务默认直连（原底座 policy-select-name=PROXY）
           sed -i 's|^\(微软服务 = .*\),policy-select-name=PROXY|\1,policy-select-name=DIRECT|' base.conf
 
-          # 5c. 底座其余分组默认指向自建 DMIT-US 分组（苹果/微软/哔哩哔哩保持 DIRECT）
+          # 5c. 底座其余分组默认指向本地 DMIT-VLESS（苹果/微软/哔哩哔哩保持 DIRECT）
           #    注意：必须在 5b 之后跑，这样微软服务已是 DIRECT，不会被改掉。
-          #    指向 DMIT-US 分组而不是直指节点：换节点时只改 DMIT-US 一处，
-          #    所有服务分组自动跟随（国区设备切 GCP 节点时不用逐个改）。
-          sed -i '/^[^#].*policy-select-name=PROXY$/s/= select,/= select,DMIT-US,/' base.conf
-          sed -i '/^[^#].*policy-select-name=PROXY$/s/policy-select-name=PROXY$/policy-select-name=DMIT-US/' base.conf
+          sed -i '/^[^#].*policy-select-name=PROXY$/s/= select,/= select,DMIT-VLESS,/' base.conf
+          sed -i '/^[^#].*policy-select-name=PROXY$/s/policy-select-name=PROXY$/policy-select-name=DMIT-VLESS/' base.conf
 
           # 6. 覆盖 DNS 与通用设置（个人偏好，一次写死，以后不用在小火箭里手动改）
           #    以下对照手机端截图整理：
