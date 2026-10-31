@@ -42,8 +42,8 @@ jobs:
 
           # 4. 注入自建策略分组（[Proxy Group] 段顶部）
           #    默认指向已写死，下载即用，不用手动点选：
-          #    US-AUTO → url-test 自动测速（DMIT 三主力节点，出口 IP 同一台，不跳 IP）；US 默认 US-AUTO，手动可切 DMIT-HY2 / 美国节点 / DIRECT；TW → 台湾节点；HK → 香港节点。
-          sed -i '/^\[Proxy Group\]/a US-AUTO = url-test,DMIT-HY2,DMIT-TUIC,DMIT-VLESS,url=http://www.gstatic.com/generate_204,interval=300,tolerance=100\nUS = select,US-AUTO,DMIT-HY2,美国节点,DIRECT,policy-select-name=US-AUTO\nTW = select,台湾节点,DIRECT,policy-select-name=台湾节点\nHK = select,香港节点,DIRECT,policy-select-name=香港节点' base.conf
+          #    US-AUTO → url-test 自动测速（DMIT 三主力节点，出口 IP 同一台，不跳 IP）；US 默认 US-AUTO，手动可切 DMIT-HY2 / DIRECT；TW → 台湾节点；HK → 香港节点。
+          sed -i '/^\[Proxy Group\]/a US-AUTO = url-test,DMIT-HY2,DMIT-TUIC,DMIT-VLESS,url=http://www.gstatic.com/generate_204,interval=300,tolerance=100\nUS = select,US-AUTO,DMIT-HY2,DIRECT,policy-select-name=US-AUTO\nTW = select,台湾节点,DIRECT,policy-select-name=台湾节点\nHK = select,香港节点,DIRECT,policy-select-name=香港节点' base.conf
 
           # 5. 未命中流量 FINAL → US（原底座为 FINAL,PROXY，注意逗号格式）
           sed -i 's|^FINAL,.*|FINAL,US|' base.conf
